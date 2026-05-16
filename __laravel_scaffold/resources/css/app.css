@@ -1,3 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        background: #f8fafc;
+    }
+
+    input[type='number'] {
+        appearance: textfield;
+    }
+
+    input[type='number']::-webkit-outer-spin-button,
+    input[type='number']::-webkit-inner-spin-button {
+        margin: 0;
+        appearance: none;
+    }
+}
+
+@layer components {
+    .md-card {
+        @apply rounded-lg border border-slate-200 bg-white shadow-sm;
+    }
+
+    .md-card-header {
+        @apply border-b border-slate-200 px-5 py-4;
+    }
+
+    .md-field {
+        @apply block w-full rounded-lg border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm transition placeholder:text-slate-400 focus:border-blue-600 focus:ring-blue-600;
+    }
+
+    .md-label {
+        @apply mb-1.5 block text-xs font-medium uppercase tracking-wide text-slate-600;
+    }
+
+    .md-btn-primary {
+        @apply inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2;
+    }
+
+    .md-btn-success {
+        @apply inline-flex items-center justify-center gap-2 rounded-lg bg-green-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2;
+    }
+
+    .md-btn-secondary {
+        @apply inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2;
+    }
+
+    .md-chip {
+        @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium;
+    }
+
+    .material-symbols-outlined {
+        font-size: 20px;
+        line-height: 1;
+        vertical-align: middle;
+    }
+}

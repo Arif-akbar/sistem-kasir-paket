@@ -16,7 +16,7 @@ new class extends Component
     }
 }; ?>
 
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="border-b border-slate-200 bg-white">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -24,7 +24,9 @@ new class extends Component
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}" wire:navigate>
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-white">
+                            <span class="material-symbols-outlined">local_shipping</span>
+                        </div>
                     </a>
                 </div>
 
@@ -32,6 +34,15 @@ new class extends Component
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('transactions.create')" :active="request()->routeIs('transactions.create')" wire:navigate>
+                        {{ __('POS') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('transactions.index')" :active="request()->routeIs('transactions.index') || request()->routeIs('transactions.show')" wire:navigate>
+                        {{ __('Transactions') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('manifests.index')" :active="request()->routeIs('manifests.*')" wire:navigate>
+                        {{ __('Manifests') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -83,6 +94,15 @@ new class extends Component
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('transactions.create')" :active="request()->routeIs('transactions.create')" wire:navigate>
+                {{ __('POS') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('transactions.index')" :active="request()->routeIs('transactions.index') || request()->routeIs('transactions.show')" wire:navigate>
+                {{ __('Transactions') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('manifests.index')" :active="request()->routeIs('manifests.*')" wire:navigate>
+                {{ __('Manifests') }}
             </x-responsive-nav-link>
         </div>
 
